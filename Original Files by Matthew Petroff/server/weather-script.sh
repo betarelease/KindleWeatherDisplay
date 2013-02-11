@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-python2 weather-script.py
-rsvg-convert --background-color=white -o weather-script-output.png weather-script-output.svg
-pngcrush -c 0 -ow weather-script-output.png
-cp -f weather-script-output.png /path/to/web/server/directory/weather-script-output.png
+python2 weather-script.py 37.5483 -121.9875
+convert -background white weather-script-output.svg weather-script-output.png 
+pngcrush -c0 w4 weather-script-output.png weather-output.png
+cp -f weather-output.png /var/www/weather-script-output.png
