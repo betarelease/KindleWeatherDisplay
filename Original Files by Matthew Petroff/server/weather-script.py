@@ -66,9 +66,5 @@ one_day = datetime.timedelta(days=1)
 days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 output = output.replace('DAY_THREE',days_of_week[(day_one + 2*one_day).weekday()]).replace('DAY_FOUR',days_of_week[(day_one + 3*one_day).weekday()])
 
-    update_time = "Last updated at " + datetime.now().strftime("%l:%M%P")
-    last_update = tiny_font.render(update_time, True, gray, white)
-    screen.blit(last_update, (5, 770))
-
 # Write output
 codecs.open('weather-script-output.svg', 'w', encoding='utf-8').write(output)
