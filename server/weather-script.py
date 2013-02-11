@@ -73,8 +73,11 @@ output = output.replace('LOW_THREE',str(lows[2]))
 output = output.replace('LOW_FOUR',str(lows[3]))
 
 # Insert days of week
-one_day = datetime.timedelta(days=1)
 days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+one_day = datetime.timedelta(days=1)
+
+output = output.replace('DAY_ONE',days_of_week[day_one.weekday()])
+output = output.replace('DAY_TWO',days_of_week[(day_one + one_day).weekday()])
 output = output.replace('DAY_THREE',days_of_week[(day_one + 2*one_day).weekday()])
 output = output.replace('DAY_FOUR',days_of_week[(day_one + 3*one_day).weekday()])
 
