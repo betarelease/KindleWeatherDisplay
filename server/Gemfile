@@ -2,3 +2,5 @@ source :rubygems
 
 gem 'crack'
 gem 'httparty'
+
+gem 'sinatra'

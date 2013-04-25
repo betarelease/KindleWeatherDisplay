@@ -5,8 +5,13 @@ class Weather
   include HTTParty
 
   attr_accessor :highs, :lows, :icons, :start_date
-  def fetch(latitude, longitude)
-    @uri = "http://graphical.weather.gov/xml/SOAP_server/ndfdSOAPclientByDay.php?whichClient=NDFDgenByDay&lat=#{latitude}&lon=#{longitude}&format=24+hourly&numDays=4&Unit=e"
+  def initialize(latitude, longitude)
+    @latitude = latitude
+    @longitude = longitude
+  end
+  
+  def fetch
+    @uri = "http://graphical.weather.gov/xml/SOAP_server/ndfdSOAPclientByDay.php?whichClient=NDFDgenByDay&lat=#{@latitude}&lon=#{@longitude}&format=24+hourly&numDays=4&Unit=e"
     response = self.class.get( "#{@uri}")
     data = Crack::XML.parse( response.body )
     temperatures = data["dwml"]["data"]["parameters"]["temperature"]
@@ -54,6 +59,3 @@ class Weather
   
 end
 
-weather = Weather.new
-weather.fetch(37.5483, -121.9875)
-weather.process_svg
