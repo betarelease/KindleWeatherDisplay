@@ -1,8 +1,3 @@
-require 'sinatra'
-require './weather'
-
-set :public_folder, File.dirname(__FILE__) + '/public'
-
 Thread.new do
   while true do
      sleep 15
