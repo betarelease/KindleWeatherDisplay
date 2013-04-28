@@ -53,8 +53,6 @@ class Weather
     
 
     File.open("./weather-script-output.svg", "w") {|file| file.puts output}
-    puts "[DEBUG] output => #{output.inspect}"
-    
   end
   
 end
